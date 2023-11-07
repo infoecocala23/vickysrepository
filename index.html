@@ -1,49 +1,81 @@
 <!DOCTYPE html>
-<html lang="es">
-
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./css/style.css">
+    <title>Calculadora de Área</title>
+</head>
+<header>
+    <h1>Calculadora de Área</h1>
+</header>
 <body>
-  <header>
-    <h1>Economia en Argentina</h1>
-    <h2> La inflación</h2>
-  </header>
-  <div id="contenido">
-    <p>Es el aumento generalizado y sostenido de los precios de los bienes y servicios existentes en el mercado durante
-      un determinado período de tiempo. En Argentina se mantuvo en general en un solo dígito entre 1900 y 1944, aunque
-      con picos de dos dígitos en 1900-1901, 1917-1918, 1920, 1933, y con varios años de alta deflación. El país mide la
-      inflación a través del Índice de precios al consumidor (IPC) que calcula el <a
-        href="https://www.indec.gob.ar/indec/web/Nivel4-Tema-3-5-31">Instituto Nacional de Estadísticas y
-        Censos (INDEC)</a>. Varias provincias tienen sus propios centros oficiales de registro de la inflación en sus
-      territorios.
+    <!-- Rectángulo -->
+    <div class="rectangulo">
+        <h2>Rectángulo</h2>
+        <label for="baseRectangulo">Base:</label>
+        <input type="number" id="baseRectangulo">
+        <label for="alturaRectangulo">Altura:</label>
+        <input type="number" id="alturaRectangulo">
+        <button onclick="calcularRectangulo()">Calcular</button>
+        <p>Área del rectángulo: <span id="resultadoRectangulo"></span></p>
+    </div>
 
-      El gobierno que más inflación tuvo en la historia argentina fue el de Raúl Alfonsín (1983-1989), con un promedio
-      anual de 592,28% y un pico hiperinflacionario en 1989 que llegó al 3079,5%. El gobierno que menos inflación tuvo
-      fue el segundo mandato de Carlos Menem (1995-1999), con un promedio anual de 0,025%.
+    <!-- Cuadrado -->
+    <div class="cuadrado">
+        <h2>Cuadrado</h2>
+        <label for="ladoCuadrado">Lado:</label>
+        <input type="number" id="ladoCuadrado">
+        <button onclick="calcularCuadrado()">Calcular</button>
+        <p>Área del cuadrado: <span id="resultadoCuadrado"></span></p>
+    </div>
 
-      La persistencia del fenómeno inflacionario en la economía argentina a lo largo del tiempo, junto con la
-      incapacidad política de combatirla, hace que se un tema de larga data en Argentina con graves daños en el poder
-      adquisitivo de sus ciudadanos a lo largo de su historia.</p>
-    <p>Este año la tasa de variación anual del IPC en Argentina en agosto de 2023 ha sido del 124,4%, 10,9 puntos
-      superior a la del mes anterior. La variación mensual del IPC (Índice de Precios al Consumo) ha sido del 12,4%, de
-      forma que la inflación acumulada en 2023 es del 80,2%. </p>
-    <h3>Hiperinflación de 1989-1990</h3>
-    <p> Los dos picos hiperinflacionarios sucedieron en dos momentos diferentes, 1989 (presidencia del radical Alfonsín)
-      y 1990 (presidencia de Menem). El primer pico, conocido como hiperinflación del año 1989, comenzó en abril de ese
-      año y pudo ser controlada, en forma temporaria, hacia septiembre de ese año mediante la aplicación del Plan Bonex
-      por el gobierno del presidente Menem que había asumido el 8 de julio de ese mismo año. Con la devaluación
-      del Austral, miles de personas pasaron hacia la pobreza: la hiperinflación devoró salarios, generó revueltas,
-      saqueos y llevó al adelantamiento del traspaso del poder. La hiperinflación a fines del alfonsinismo provocó un
-      aumento en el porcentaje de personas viviendo en la pobreza del 25 % a comienzos de 1989, al récord histórico de
-      47,3 % en octubre del mismo año.
+    <!-- Círculo -->
+    <div class="circulo">
+        <h2>Círculo</h2>
+        <label for="radioCirculo">Radio:</label>
+        <input type="number" id="radioCirculo">
+        <button onclick="calcularCirculo()">Calcular</button>
+        <p>Área del círculo: <span id="resultadoCirculo"></span></p>
+    </div>
 
-      El segundo pico hiperinflacionario, se produjo a comienzos de 1990 y recién pudo ser controlado parcialmente hacia
-      abril de ese año. De todos modos, la inflación continuó siendo muy elevada durante el resto del año.
-      Finalmente, en abril de 1991, mediante la aplicación de la Ley de Convertibilidad del Austral, la inflación pudo
-      ser reducida drásticamente.</p>
-      <img src="Inflación_e_hiperinflación_en_Argentina_1989_1990.png" alt="" width="500px" height="4%">
-    <h4>El signo monetario</h4>
-    <p>Como consecuencia, desde 1960 a la fecha la República Argentina tuvo 5 signos monetarios: peso moneda nacional
-      (m$n), peso ley 18.188 ($ley), peso argentino ($a), austral (₳), peso ($). La relación entre estas da una idea de
-      la elevada inflación promedio de estas últimas décadas:</p>
+    <!-- Triángulo -->
+    <div class="triangulo">
+        <h2>Triángulo</h2>
+        <label for="baseTriangulo">Base:</label>
+        <input type="number" id="baseTriangulo">
+        <label for="alturaTriangulo">Altura:</label>
+        <input type="number" id="alturaTriangulo">
+        <button onclick="calcularTriangulo()">Calcular</button>
+        <p>Área del triángulo: <span id="resultadoTriangulo"></span></p>
+    </div>
+
+    <script>
+        function calcularRectangulo() {
+            var base = parseFloat(document.getElementById("baseRectangulo").value);
+            var altura = parseFloat(document.getElementById("alturaRectangulo").value);
+            var area = base * altura;
+            document.getElementById("resultadoRectangulo").textContent = area;
+        }
+
+        function calcularCuadrado() {
+            var lado = parseFloat(document.getElementById("ladoCuadrado").value);
+            var area = lado * lado;
+            document.getElementById("resultadoCuadrado").textContent = area;
+        }
+
+        function calcularCirculo() {
+            var radio = parseFloat(document.getElementById("radioCirculo").value);
+            var area = Math.PI * Math.pow(radio, 2);
+            document.getElementById("resultadoCirculo").textContent = area;
+        }
+
+        function calcularTriangulo() {
+            var base = parseFloat(document.getElementById("baseTriangulo").value);
+            var altura = parseFloat(document.getElementById("alturaTriangulo").value);
+            var area = (base * altura) / 2;
+            document.getElementById("resultadoTriangulo").textContent = area;
+        }
+    </script>
 </body>
-
 </html>
